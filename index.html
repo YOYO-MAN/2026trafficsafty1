@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>楊光梅好、安全第一</title>
+<meta name="description" content="楊梅高中高二交通安全充實課程：今天的你、18 歲的你，課後複習、官方影片與互動練習。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+/* Layout: one long "road" column; a sticky signal-bar nav; sections split by dashed lane markings; key words set as painted road markings on asphalt tiles */
+:root{
+  --bg:#F6F3FB; --surface:#FFFFFF; --ink:#211A31; --muted:#5B5370; --line:#DDD5EA;
+  --accent:#4A2C7A; --accent-bg:#4A2C7A; --on-accent:#FFFFFF; --lav:#ECE4F8;
+  --sun:#F2B517; --on-sun:#211A31; --go:#13845A; --stop:#CF3640; --warn:#B86E00;
+  --asphalt:#2F2A3B; --mark:#FFFFFF; --mark-dim:rgba(255,255,255,.55);
+  --truck:#EDE8F5; --truck-2:#D6CCE8;
+  --shadow:0 1px 0 rgba(33,26,49,.05),0 10px 30px rgba(33,26,49,.07);
+  --f-display:"Huninn","Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --f-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  --step--1:clamp(.84rem,.8rem + .2vw,.92rem); --step-0:clamp(1rem,.96rem + .2vw,1.08rem);
+  --step-1:clamp(1.2rem,1.1rem + .5vw,1.4rem); --step-2:clamp(1.5rem,1.3rem + 1vw,2rem);
+  --step-3:clamp(2rem,1.6rem + 2vw,3rem); --step-4:clamp(2.6rem,1.8rem + 4vw,4.6rem);
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14111C; --surface:#1E1929; --ink:#F2EDFA; --muted:#B5ABC8; --line:#362E49;
+    --accent:#C9B3F7; --accent-bg:#B79CF0; --on-accent:#17121F; --lav:#2A2140;
+    --sun:#FFC83D; --on-sun:#17121F; --go:#3FCB8A; --stop:#FF6B72; --warn:#FFB347;
+    --asphalt:#0D0B13; --mark:#F4F1EA; --mark-dim:rgba(244,241,234,.5);
+    --truck:#E2DCEE; --truck-2:#C7BCDD; --shadow:none; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14111C; --surface:#1E1929; --ink:#F2EDFA; --muted:#B5ABC8; --line:#362E49;
+  --accent:#C9B3F7; --accent-bg:#B79CF0; --on-accent:#17121F; --lav:#2A2140;
+  --sun:#FFC83D; --on-sun:#17121F; --go:#3FCB8A; --stop:#FF6B72; --warn:#FFB347;
+  --asphalt:#0D0B13; --mark:#F4F1EA; --mark-dim:rgba(244,241,234,.5);
+  --truck:#E2DCEE; --truck-2:#C7BCDD; --shadow:none; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{animation:none!important;transition:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--step-0);line-height:1.75;margin:0}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:6px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.25;text-wrap:balance;margin:0}
+h2{font-size:var(--step-3)} h3{font-size:var(--step-2)} h4{font-size:var(--step-1);margin:0;line-height:1.4}
+p{margin:0}
+.muted{color:var(--muted)}
+.eyebrow{font-size:var(--step--1);letter-spacing:.12em;color:var(--muted);font-weight:700}
+.num{font-variant-numeric:tabular-nums}
+.stack{display:flex;flex-direction:column;gap:14px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);min-width:0}
+.tag{display:inline-block;font-size:var(--step--1);font-weight:700;padding:2px 10px;border-radius:999px;background:var(--lav);color:var(--accent)}
+.law{font-size:var(--step--1);color:var(--muted)}
+
+/* nav */
+.signal{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--asphalt);color:var(--mark)}
+.signal .wrap{display:flex;align-items:center;gap:14px;padding-block:10px;overflow-x:auto;scrollbar-width:none}
+.signal .wrap::-webkit-scrollbar{display:none}
+.lamp{display:flex;gap:6px;flex:none}
+.lamp i{width:12px;height:12px;border-radius:50%;background:#5a5468;display:block}
+.lamp i.r{background:var(--stop)} .lamp i.y{background:var(--sun)} .lamp i.g{background:var(--go)}
+.brand{font-family:var(--f-display);white-space:nowrap;flex:none}
+.signal nav{display:flex;gap:4px;margin-left:auto}
+.signal nav a{color:var(--mark);text-decoration:none;font-size:var(--step--1);padding:6px 10px;border-radius:8px;white-space:nowrap}
+.signal nav a:hover,.signal nav a.on{background:rgba(255,255,255,.14)}
+
+/* hero */
+.hero{padding-block:44px 28px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:28px;align-items:center}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:var(--step-4);color:var(--accent);letter-spacing:.02em}
+.hero .lead{font-size:var(--step-1);margin-top:14px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 18px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--accent-bg);color:var(--on-accent)}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.hero-art{width:100%;height:auto;border-radius:20px;display:block}
+.sky{fill:var(--lav)} .sunfill{fill:var(--sun)} .road{fill:var(--asphalt)} .mk{fill:var(--mark)}
+.walker{stroke:#43D695;fill:none;stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.walker-head{fill:#43D695}
+.blink{animation:blink 1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);margin-top:30px}
+.stat{padding:16px 14px;border-right:1px solid var(--line);min-width:0}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--f-display);font-weight:400;font-size:var(--step-3);line-height:1.1;color:var(--accent)}
+.stat span{font-size:var(--step--1);color:var(--muted)}
+.src{font-size:.8rem;color:var(--muted);margin-top:8px}
+
+/* lanes */
+section{padding-block:56px}
+.lane{border-top:4px dashed var(--line)}
+.sec-head{display:flex;flex-direction:column;gap:8px;margin-bottom:26px}
+.sec-head p{max-width:40em;color:var(--muted)}
+.sub{margin-top:42px}
+.sub h3{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sub h3 small{font-family:var(--f-body);font-size:var(--step--1);color:var(--muted)}
+
+/* road-marking tiles */
+.marks{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.marks.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:640px){.marks{grid-template-columns:repeat(2,minmax(0,1fr))}.marks.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.mark-tile{background:var(--asphalt);color:var(--mark);border-radius:12px;padding:16px 14px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.mark-tile .glyph{font-family:var(--f-display);font-size:clamp(2.6rem,2rem + 3vw,4rem);line-height:1;transform:scaleY(1.35);transform-origin:bottom;margin-top:10px;letter-spacing:.02em}
+.mark-tile .glyph.small{font-size:clamp(1.6rem,1.3rem + 1.4vw,2.2rem)}
+.mark-tile p{font-size:var(--step--1);color:var(--mark-dim)}
+.mark-tile strong{color:var(--mark);font-size:var(--step-0)}
+
+/* figure blocks */
+figure{margin:0}
+.fig{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px;min-width:0}
+.fig svg{width:100%;height:auto;display:block;border-radius:10px}
+.fig figcaption{font-size:var(--step--1);color:var(--muted);margin-top:10px}
+.svg-label{font-family:"Noto Sans TC",sans-serif;font-size:15px;fill:var(--mark);font-weight:700}
+.svg-label.dark{fill:var(--ink)}
+.zone{fill:var(--stop);opacity:.42}
+.lane-line{stroke:var(--mark-dim);stroke-width:3;stroke-dasharray:16 14}
+.truck{fill:var(--truck)} .truck2{fill:var(--truck-2)}
+.carfill{fill:var(--sun)}
+.ruler{stroke:var(--sun);stroke-width:3;fill:none}
+
+/* big number */
+.bignum{font-family:var(--f-display);font-size:clamp(3rem,2.2rem + 4vw,5.2rem);line-height:1;color:var(--stop)}
+.callout{border-left:6px solid var(--accent);background:var(--lav);padding:14px 18px;border-radius:0 12px 12px 0}
+.callout.sun{border-color:var(--sun)}
+ul.clean{margin:0;padding-left:1.2em} ul.clean li{margin:.25em 0}
+.pen{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.pen .card h4{color:var(--accent)}
+
+/* timeline */
+.tl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;counter-reset:t}
+@media (max-width:700px){.tl{grid-template-columns:1fr}}
+.tl .card{border-top:6px solid var(--accent)}
+.tl .date{font-family:var(--f-display);font-size:var(--step-2);color:var(--accent)}
+
+/* scenario game */
+.game{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.game-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.progress{display:flex;gap:6px}
+.progress i{width:28px;height:8px;border-radius:4px;background:var(--line);display:block}
+.progress i.ok{background:var(--go)} .progress i.ng{background:var(--stop)} .progress i.now{background:var(--accent)}
+.scene{font-size:var(--step-1);margin:16px 0;min-height:3.2em}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px}
+.choice{font:inherit;font-weight:700;padding:14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer;text-align:center}
+.choice[data-k="stop"]{border-color:var(--stop)} .choice[data-k="slow"]{border-color:var(--warn)} .choice[data-k="go"]{border-color:var(--go)}
+.choice:disabled{opacity:.55;cursor:default}
+.choice.picked{outline:3px solid var(--ink)}
+.feedback{margin-top:14px;padding:14px 16px;border-radius:12px;background:var(--lav)}
+.feedback b.ok{color:var(--go)} .feedback b.ng{color:var(--stop)}
+.game-actions{display:flex;justify-content:flex-end;margin-top:14px;gap:10px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px}
+@media (max-width:820px){.calc{grid-template-columns:1fr}}
+.ctl{display:flex;flex-direction:column;gap:16px}
+.ctl label{display:flex;justify-content:space-between;gap:10px;font-weight:700}
+.ctl input[type=range]{width:100%;accent-color:var(--accent-bg)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{font:inherit;padding:6px 14px;border-radius:999px;border:2px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;font-weight:700}
+.seg button[aria-pressed="true"]{background:var(--accent-bg);color:var(--on-accent);border-color:var(--accent-bg)}
+.readout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.readout div{background:var(--bg);border-radius:12px;padding:10px 12px;min-width:0}
+.readout b{display:block;font-size:clamp(1.15rem,.9rem + 1.2vw,1.7rem);font-family:var(--f-display);font-weight:400;line-height:1.2;white-space:nowrap}
+.readout span{font-size:var(--step--1);color:var(--muted)}
+.bar-wrap{overflow-x:auto}
+.bar{position:relative;height:44px;display:flex;border-radius:8px;overflow:hidden;background:var(--bg);min-width:280px}
+.bar div{height:100%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;white-space:nowrap;overflow:hidden}
+.b-phone{background:var(--accent-bg);color:var(--on-accent)} .b-react{background:var(--sun);color:var(--on-sun)} .b-brake{background:var(--stop);color:#fff}
+.ticks{position:relative;height:22px;min-width:280px;font-size:.75rem;color:var(--muted)}
+.ticks span{position:absolute;transform:translateX(-50%)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:var(--step--1);color:var(--muted)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* videos */
+.vgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.vcard{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.vnum{width:46px;height:46px;border-radius:12px;background:var(--asphalt);color:var(--mark);display:grid;place-items:center;font-family:var(--f-display);font-size:1.4rem}
+.vmeta{font-size:var(--step--1);color:var(--muted)}
+.vdesc{font-size:var(--step--1);margin-top:6px}
+.vactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn-link,.btn-play{font:inherit;font-size:var(--step--1);font-weight:700;padding:6px 12px;border-radius:999px;border:2px solid var(--accent);color:var(--accent);background:transparent;text-decoration:none;cursor:pointer}
+.vframe{grid-column:1/-1;aspect-ratio:16/9;max-width:100%;border-radius:10px;overflow:hidden;background:#000}
+.vframe iframe{width:100%;height:100%;border:0}
+.backups{margin-top:18px;font-size:var(--step--1)}
+.backups li{margin:.3em 0}
+
+/* quiz */
+.quiz .q{font-size:var(--step-1);font-weight:700;margin:12px 0 14px}
+.opts{display:grid;gap:10px}
+.opt{font:inherit;text-align:left;padding:12px 14px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.opt.right{border-color:var(--go);background:color-mix(in srgb,var(--go) 14%,var(--bg))}
+.opt.wrong{border-color:var(--stop);background:color-mix(in srgb,var(--stop) 12%,var(--bg))}
+.opt:disabled{cursor:default}
+.score{font-family:var(--f-display);font-size:var(--step-3);color:var(--accent)}
+
+/* summary */
+.six{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px}
+.six div{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.six i{font-style:normal;flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--accent-bg);color:var(--on-accent);font-weight:700;font-size:.9rem}
+
+footer{background:var(--asphalt);color:var(--mark);padding-block:30px;margin-top:20px}
+footer a{color:var(--mark)}
+footer p{font-size:var(--step--1);color:var(--mark-dim)}
+.sources li{margin:.35em 0;font-size:var(--step--1)}
+</style>
+<style>[hidden]{display:none!important} img{max-width:100%}</style>
+</head>
+<body>
+
+
+<header class="signal" aria-label="網站導覽">
+  <div class="wrap">
+    <span class="lamp" aria-hidden="true"><i class="r"></i><i class="y"></i><i class="g"></i></span>
+    <span class="brand">楊光梅好、安全第一</span>
+    <nav>
+      <a href="#map">課程地圖</a>
+      <a href="#today">今天的你</a>
+      <a href="#eighteen">18 歲的你</a>
+      <a href="#videos">影片</a>
+      <a href="#quiz">快問快答</a>
+      <a href="#sources">資料來源</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">桃園市立楊梅高級中等學校｜高二交通安全充實課程</p>
+        <h1>楊光梅好、<br>安全第一</h1>
+        <p class="lead">「楊光梅好」取自校名，諧音「陽光美好」——那是你接下來的青春與未來；「安全第一」，是守住這一切的前提。這裡整理了課堂上的兩個重點，讓你課後複習、自己練習。</p>
+        <div class="cta">
+          <a class="btn primary" href="#today">從「今天的你」開始</a>
+          <a class="btn ghost" href="#quiz">做快問快答</a>
+        </div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 640 420" role="img" aria-label="梅花形狀的太陽從斑馬線後方升起，右側行人號誌亮著綠色小綠人">
+        <rect class="sky" x="0" y="0" width="640" height="420"/>
+        <g transform="translate(250 175)">
+          <g class="sunfill" opacity=".35">
+            <rect x="-5" y="-150" width="10" height="34" rx="5"/><rect x="-5" y="116" width="10" height="34" rx="5"/>
+            <rect x="-150" y="-5" width="34" height="10" rx="5"/><rect x="116" y="-5" width="34" height="10" rx="5"/>
+            <rect x="-5" y="-150" width="10" height="34" rx="5" transform="rotate(45)"/><rect x="-5" y="-150" width="10" height="34" rx="5" transform="rotate(-45)"/>
+            <rect x="-5" y="-150" width="10" height="34" rx="5" transform="rotate(135)"/><rect x="-5" y="-150" width="10" height="34" rx="5" transform="rotate(-135)"/>
+          </g>
+          <g class="sunfill">
+            <circle cx="0" cy="-52" r="46"/><circle cx="49.5" cy="-16" r="46"/><circle cx="30.6" cy="42" r="46"/><circle cx="-30.6" cy="42" r="46"/><circle cx="-49.5" cy="-16" r="46"/>
+          </g>
+          <circle cx="0" cy="0" r="24" class="sky"/>
+          <g class="sunfill"><circle cx="0" cy="-12" r="4"/><circle cx="11.4" cy="-3.7" r="4"/><circle cx="7" cy="9.7" r="4"/><circle cx="-7" cy="9.7" r="4"/><circle cx="-11.4" cy="-3.7" r="4"/></g>
+        </g>
+        <rect class="road" x="0" y="285" width="640" height="135"/>
+        <g class="mk">
+          <rect x="24" y="312" width="34" height="84" rx="3"/><rect x="86" y="312" width="34" height="84" rx="3"/><rect x="148" y="312" width="34" height="84" rx="3"/>
+          <rect x="210" y="312" width="34" height="84" rx="3"/><rect x="272" y="312" width="34" height="84" rx="3"/><rect x="334" y="312" width="34" height="84" rx="3"/>
+          <rect x="396" y="312" width="34" height="84" rx="3"/>
+        </g>
+        <rect x="548" y="168" width="10" height="200" fill="#6E6680"/>
+        <rect x="504" y="96" width="98" height="132" rx="12" fill="#17141F"/>
+        <g class="blink">
+          <circle class="walker-head" cx="538" cy="122" r="9"/>
+          <path class="walker" d="M538 134 L534 162 M535 142 L522 154 M536 142 L550 150 M534 162 L524 184 M534 162 L547 182"/>
+        </g>
+        <text x="571" y="214" text-anchor="middle" fill="#43D695" font-family="Noto Sans TC, sans-serif" font-size="30" font-weight="700">08</text>
+      </svg>
+    </div>
+    <div class="stats" aria-label="課堂引用數據">
+      <div class="stat"><b class="num">1,569</b><span>115 年 1～7 月全國道路交通事故死亡人數</span></div>
+      <div class="stat"><b class="num">7.47</b><span>平均每天死亡人數，約每 5 天就是一整個班</span></div>
+      <div class="stat"><b class="num">691</b><span>其中死於路口事故的人數，約占 44%</span></div>
+      <div class="stat"><b class="num">22.4%</b><span>18～24 歲占機車事故死傷比例，所有年齡層最高</span></div>
+    </div>
+    <p class="src">資料來源：道安資訊查詢網「統計快覽」（初估值）；交通部統計（115 年 9 月）。</p>
+  </div>
+</section>
+
+<section class="lane" id="map">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">課程地圖</p>
+      <h2>今天只講兩件事</h2>
+      <p>你現在是行人、乘客，也可能騎微型電動二輪車；再過一兩年，你會拿到人生第一張駕照。兩個身分，各有該做到的事。</p>
+    </div>
+    <div class="grid g2">
+      <a class="card" href="#today" style="text-decoration:none;color:inherit">
+        <span class="tag">重點一</span>
+        <h3 style="margin-top:10px">今天的你</h3>
+        <p class="muted">未成年用路人：走路的安全第一、後座安全帽、遠離大型車、沒有駕照不上路。</p>
+      </a>
+      <a class="card" href="#eighteen" style="text-decoration:none;color:inherit">
+        <span class="tag">重點二</span>
+        <h3 style="margin-top:10px">18 歲的你</h3>
+        <p class="muted">即將上路：第一張駕照、停讓行人、預防性駕駛「慢一點、遠一點、早一點、亮一點」。</p>
+      </a>
+    </div>
+    <div class="sub">
+      <h3>帶回家的六句話</h3>
+      <div class="six">
+        <div><i>1</i><p>小綠人閃了，秒數不夠就等下一輪。</p></div>
+        <div><i>2</i><p>安全帽戴好，也要扣好。</p></div>
+        <div><i>3</i><p>看不到司機的眼睛，司機就看不到你。</p></div>
+        <div><i>4</i><p>沒有駕照，不上路。</p></div>
+        <div><i>5</i><p>看到行人，完全停住。</p></div>
+        <div><i>6</i><p>慢一點、遠一點、早一點、亮一點。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lane" id="today">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">重點一</p>
+      <h2>今天的你——未成年用路人</h2>
+      <p>每天上學、補習、回家，你走過的每一個路口，都值得多停一秒。</p>
+    </div>
+
+    <div class="sub">
+      <h3>走路的安全第一 <small>小綠人新制（115 年 3 月）</small></h3>
+      <div class="grid g2">
+        <div class="stack">
+          <p>交通部修正了行人號誌的規定，三個重點：</p>
+          <ul class="clean">
+            <li><b>綠燈閃爍改為「避免跨入」</b>：閃爍是提醒你評估剩下的秒數，不是叫你跑。閃爍時踏上行穿線不會被開罰，但秒數不夠，就等下一輪綠燈。</li>
+            <li><b>取消「小綠人快跑」動畫</b>，避免大家以為要把握最後衝刺。</li>
+            <li><b>行穿線退縮與枕木紋行穿線</b>：讓轉彎車有停讓空間，也讓駕駛更容易看見你。</li>
+          </ul>
+          <p class="law">依據：道路交通標誌標線號誌設置規則第 207 條（交通部 115 年 3 月公告修正）</p>
+        </div>
+        <div class="callout sun">
+          <p><b>已經走到斑馬線中間了？</b></p>
+          <p>專心、快步走完，不要折返，也不要停在路中間。</p>
+          <p style="margin-top:10px"><b>還沒踏上斑馬線？</b></p>
+          <p>先看秒數。來得及就走，來不及就等——等一輪最多一兩分鐘。</p>
+        </div>
+      </div>
+      <p style="margin:22px 0 10px"><b>過路口五步驟</b>（交通部推廣口訣）</p>
+      <div class="marks">
+        <div class="mark-tile"><span class="glyph">停</span><strong>先停下</strong><p>到了路口先停下腳步。</p></div>
+        <div class="mark-tile"><span class="glyph">看</span><strong>看清楚</strong><p>看號誌秒數、車輛動向與行人燈。</p></div>
+        <div class="mark-tile"><span class="glyph">轉</span><strong>轉頭確認</strong><p>通過前轉頭看有沒有轉彎車。</p></div>
+        <div class="mark-tile"><span class="glyph">揮</span><strong>揮手致意</strong><p>向停讓的駕駛揮手，用眼神確認。</p></div>
+        <div class="mark-tile"><span class="glyph">動</span><strong>專心通過</strong><p>快速通過，不滑手機、不逗留。</p></div>
+      </div>
+      <p class="muted" style="margin-top:12px">另外記得：100 公尺內有行人穿越道、天橋或地下道，就要走穿越設施（違規穿越罰 500 元）；不穿越雙黃線，不從車陣或公車前方竄出；夜間穿亮色或反光衣物。</p>
+    </div>
+
+    <div class="sub">
+      <h3>坐在後座的安全第一 <small>安全帽</small></h3>
+      <div class="grid g2">
+        <div class="card">
+          <p class="muted">未戴或未依規定配戴安全帽，死亡風險約為正確配戴的</p>
+          <p class="bignum num">8～8.8 倍</p>
+          <p class="src">資料來源：交通部統計（115 年 9 月）</p>
+        </div>
+        <div class="card">
+          <h4>三個檢查</h4>
+          <ul class="clean">
+            <li><b>戴正</b>：不後仰、不歪斜，帽緣不遮住視線。</li>
+            <li><b>扣好</b>：扣環確實扣上，沒扣等於沒戴，撞擊時安全帽會先飛出去。</li>
+            <li><b>一到兩指</b>：扣帶與下巴之間約可放入 1～2 指，搖頭時安全帽不晃動。</li>
+          </ul>
+          <p class="law" style="margin-top:8px">附載座人未依規定戴安全帽，處駕駛人 500 元（處罰條例第 31 條）。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>遠離大型車 <small>視野死角與內輪差</small></h3>
+      <div class="grid g2">
+        <figure class="fig">
+          <svg viewBox="0 0 520 430" role="img" aria-label="俯視圖：大型車的四個視野死角，右側最大">
+            <rect class="road" x="0" y="0" width="520" height="430" rx="14"/>
+            <line class="lane-line" x1="173" y1="10" x2="173" y2="420"/><line class="lane-line" x1="347" y1="10" x2="347" y2="420"/>
+            <rect class="zone" x="200" y="34" width="120" height="84" rx="6"/>
+            <polygon class="zone" points="307,150 470,200 470,380 307,380"/>
+            <polygon class="zone" points="213,175 150,215 150,380 213,380"/>
+            <rect class="zone" x="200" y="382" width="120" height="40" rx="6"/>
+            <rect class="truck" x="213" y="120" width="94" height="72" rx="12"/>
+            <rect x="225" y="128" width="70" height="20" rx="4" fill="#9C93AF"/>
+            <rect class="truck2" x="213" y="198" width="94" height="182" rx="6"/>
+            <text class="svg-label" x="260" y="82" text-anchor="middle">車頭前方</text>
+            <text class="svg-label" x="400" y="300" text-anchor="middle">右側</text>
+            <text class="svg-label" x="400" y="322" text-anchor="middle">（範圍最大）</text>
+            <text class="svg-label" x="180" y="306" text-anchor="middle">左側</text>
+            <text class="svg-label" x="260" y="408" text-anchor="middle">車尾後方</text>
+            <text class="svg-label" x="260" y="300" text-anchor="middle" style="fill:#4A2C7A">大型車</text>
+          </svg>
+          <figcaption>紅色區域是駕駛看不到的地方：車頭前方、左右兩側（右側最大）、車尾正後方。示意圖，非實際比例。</figcaption>
+        </figure>
+        <figure class="fig">
+          <svg viewBox="0 0 420 360" role="img" aria-label="大型車右轉時，後輪軌跡比前輪更靠內側，兩者之間是內輪差危險區">
+            <rect class="road" x="0" y="0" width="420" height="360" rx="14"/>
+            <rect x="300" y="250" width="120" height="110" fill="#8F86A3"/>
+            <path d="M300 250 L420 250" stroke="#CFC8DC" stroke-width="4"/>
+            <path d="M300 250 L300 360" stroke="#CFC8DC" stroke-width="4"/>
+            <path class="zone" d="M110 360 A190 190 0 0 1 300 170 L300 230 A130 130 0 0 0 170 360 Z"/>
+            <path d="M110 360 A190 190 0 0 1 300 170" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-dasharray="12 10"/>
+            <path d="M170 360 A130 130 0 0 1 300 230" fill="none" stroke="#FFC83D" stroke-width="5"/>
+            <circle cx="222" cy="268" r="9" fill="#FFFFFF"/>
+            <path d="M222 278 L222 302 M222 286 L212 296 M222 286 L232 294 M222 302 L214 318 M222 302 L230 318" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <text class="svg-label" x="20" y="34">白色虛線：前輪軌跡</text>
+            <text class="svg-label" x="20" y="58" style="fill:#FFC83D">黃色實線：後輪軌跡</text>
+            <text class="svg-label" x="150" y="210">內輪差（危險區）</text>
+            <text class="svg-label" x="318" y="300">人行道</text>
+          </svg>
+          <figcaption>大型車右轉時，後輪走的路線比前輪更靠內側，車身越長差距越大。站在路口轉角、或騎在大型車右側，都可能被捲入。</figcaption>
+        </figure>
+      </div>
+      <div class="callout" style="margin-top:16px">
+        <p><b>口訣：看不到司機的眼睛，司機就看不到你。</b></p>
+        <p>等紅燈時不停在大型車正前方或右側；停在它後方並保持距離；看到大型車打方向燈要轉彎，就往後退、讓它先過。大型車高速經過時的風壓也會讓機車不穩，不要貼近行駛。</p>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>沒有駕照不上路 <small>115 年 1 月 31 日起加重處罰</small></h3>
+      <p style="margin-bottom:14px">「借騎一下」的代價，會落在三個人身上：</p>
+      <div class="pen">
+        <div class="card"><h4>你自己</h4><p>機車罰 <b class="num">18,000～36,000</b> 元（小型車 36,000～60,000 元），車輛當場移置保管，吊扣牌照 3 個月。10 年內再犯處最高額，第 3 次起每次再加罰 12,000 元。</p></div>
+        <div class="card"><h4>你的家長</h4><p>未滿 18 歲無照駕駛，本人與法定代理人或監護人要<b>同時</b>接受道路交通安全講習；14 歲以上未成年人違規，警方會通知家長。</p></div>
+        <div class="card"><h4>借你車的人</h4><p>把車借給無照者的車主，依同一標準處罰（已善盡查證駕照者除外）。</p></div>
+        <div class="card"><h4>萬一撞到人</h4><p>強制險會先賠給受害人，再向無照駕駛人求償；駕駛未成年時，保險公司會向監護人求償。</p></div>
+      </div>
+      <p class="law" style="margin-top:10px">依據：道路交通管理處罰條例第 21、24 條；強制汽車責任保險法第 29 條；民法第 187 條。</p>
+      <div class="card" style="margin-top:16px">
+        <h4>微型電動二輪車也有規定</h4>
+        <p>須年滿 14 歲、登記掛牌、投保強制險、騎乘時戴安全帽，時速 25 公里以下；<b>不得載人、不得改裝</b>。目前不需考駕照，但它仍然是「車」：靠右行駛、不逆向、遵守號誌，也要停讓行人。行駛位置依各縣市規定，騎乘前先確認。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lane" id="eighteen">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">重點二</p>
+      <h2>18 歲的你——停讓行人與預防性駕駛</h2>
+      <p>拿到駕照那天，你就從「被保護的人」變成「要保護別人的人」。</p>
+    </div>
+
+    <div class="sub">
+      <h3>你的第一張駕照 <small>115 年考照新制</small></h3>
+      <div class="tl">
+        <div class="card"><p class="date">1 月底</p><p>機車筆試取消是非題、改為全選擇題，提高危險感知與情境題比例。</p></div>
+        <div class="card"><p class="date">3 月 31 日</p><p>汽車路考新增「停讓行人」「視野死角確認」，沒做到直接扣 32 分，等同不及格。</p></div>
+        <div class="card"><p class="date">6 月 30 日</p><p>汽車筆試改為 50 題全選擇題，新增危險感知影片題。</p></div>
+      </div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card"><p class="muted">完成機車駕訓的新手，違規風險</p><p class="bignum num" style="color:var(--go)">−59%</p></div>
+        <div class="card"><p class="muted">完成機車駕訓的新手，事故風險</p><p class="bignum num" style="color:var(--go)">−36%</p></div>
+      </div>
+      <p class="src">資料來源：交通部 168 交通安全入口網〈考照有訓練 安全看得見〉（114 年）。考照前可先到公路局「機車危險感知教育平台」練習。</p>
+    </div>
+
+    <div class="sub">
+      <h3>停讓行人 <small>停讓不是禮貌，是法律</small></h3>
+      <div class="grid g2">
+        <figure class="fig">
+          <svg viewBox="0 0 560 360" role="img" aria-label="俯視圖：行人在行人穿越道上，汽車車頭已進入行人穿越道，與行人距離不到一個車道寬，構成未停讓">
+            <rect class="road" x="0" y="0" width="560" height="360" rx="14"/>
+            <line class="lane-line" x1="10" y1="100" x2="550" y2="100"/>
+            <line x1="10" y1="180" x2="550" y2="180" stroke="#FFC83D" stroke-width="4"/>
+            <line x1="10" y1="186" x2="550" y2="186" stroke="#FFC83D" stroke-width="4"/>
+            <line class="lane-line" x1="10" y1="266" x2="550" y2="266"/>
+            <g class="mk" opacity=".9">
+              <rect x="300" y="20" width="84" height="22"/><rect x="300" y="56" width="84" height="22"/><rect x="300" y="92" width="84" height="22"/><rect x="300" y="128" width="84" height="22"/>
+              <rect x="300" y="200" width="84" height="22"/><rect x="300" y="236" width="84" height="22"/><rect x="300" y="272" width="84" height="22"/><rect x="300" y="308" width="84" height="22"/>
+            </g>
+            <rect class="carfill" x="168" y="206" width="146" height="50" rx="12"/>
+            <rect x="268" y="214" width="26" height="34" rx="5" fill="#3B3150" opacity=".55"/>
+            <circle cx="342" cy="146" r="10" fill="#43D695"/>
+            <path d="M342 158 L342 180 M342 164 L332 174 M342 164 L352 172" stroke="#43D695" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path class="ruler" d="M360 160 L470 160 M360 206 L470 206 M450 160 L450 206"/>
+            <text class="svg-label" x="548" y="150" text-anchor="end" style="fill:#FFC83D">不到 1 個車道寬</text>
+            <text class="svg-label" x="548" y="230" text-anchor="end" style="fill:#FFC83D">（約 3 公尺）</text>
+            <text class="svg-label" x="214" y="285">車頭已進入</text>
+            <text class="svg-label" x="214" y="305">行人穿越道</text>
+            <text class="svg-label" x="300" y="352" style="font-size:13px">行人穿越道</text>
+            <path d="M120 231 L160 231" stroke="#FFFFFF" stroke-width="4" marker-end="url(#arr)"/>
+            <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#FFFFFF"/></marker></defs>
+          </svg>
+          <figcaption>兩個條件同時成立就是「未停讓」：行人與車輛行進方向的距離不到 1 個車道寬（約 3 公尺），而且汽車前懸（機車看前輪）已進入行人穿越道。示意圖，非實際比例。</figcaption>
+        </figure>
+        <div class="stack">
+          <div class="callout"><p><b>停讓＝完全停住。</b>不是放慢、不是滑過去，也不能從行人前後穿越，或逼得行人加快腳步、往後退。</p></div>
+          <div class="card">
+            <h4>三層責任</h4>
+            <ul class="clean">
+              <li><b>罰鍰</b>：1,200～6,000 元，記違規點數 3 點；未停讓視障者 2,400～7,200 元（處罰條例第 44 條）。</li>
+              <li><b>刑責</b>：因此致人受傷或死亡，刑責得加重至二分之一（處罰條例第 86 條）。</li>
+              <li><b>考照</b>：路考沒停讓，直接扣 32 分。</li>
+            </ul>
+          </div>
+          <p class="muted">為什麼這麼嚴格？115 年 1～7 月，有 691 人死於路口事故，約占交通事故死亡的 44%。行人沒有車殼、沒有安全帽，是路上最脆弱的人。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub" id="judge">
+      <h3>停讓判斷挑戰 <small>6 個路口情境，你會怎麼做？</small></h3>
+      <div class="game" aria-live="polite">
+        <div class="game-top">
+          <span class="tag" id="g-count">第 1 題／共 6 題</span>
+          <div class="progress" id="g-progress" aria-hidden="true"></div>
+        </div>
+        <p class="scene" id="g-scene"></p>
+        <div class="choices">
+          <button class="choice" type="button" data-k="stop">完全停住</button>
+          <button class="choice" type="button" data-k="slow">減速注意，準備停車</button>
+          <button class="choice" type="button" data-k="go">直接通過</button>
+        </div>
+        <div class="feedback" id="g-feedback" hidden></div>
+        <div class="game-actions"><button class="btn primary" type="button" id="g-next" hidden>下一題</button></div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>預防性駕駛 <small>預測危險、進而遠離危險</small></h3>
+      <p style="margin-bottom:14px;max-width:44em">預防性駕駛（也叫防衛駕駛、防禦駕駛）的意思是：當別人犯錯的時候，你還有退路。它可以濃縮成四個「一點」：</p>
+      <div class="marks four">
+        <div class="mark-tile"><span class="glyph">慢</span><strong>慢一點：控制速度</strong><p>時速 50 公里，每秒前進約 14 公尺；速度變成 2 倍，煞車距離約變成 4 倍。學校、醫院、路口、彎道前確實減速。</p></div>
+        <div class="mark-tile"><span class="glyph">遠</span><strong>遠一點：保持距離</strong><p>跟車至少 2 秒，雨天、夜間加倍；高快速公路小型車＝時速÷2（公尺），大型車＝時速−20（公尺）。</p></div>
+        <div class="mark-tile"><span class="glyph">早</span><strong>早一點：預判危險</strong><p>假設別人會犯錯：巷口竄出、路邊車門打開、公車前竄出的人、滾到路上的球。</p></div>
+        <div class="mark-tile"><span class="glyph">亮</span><strong>亮一點：讓人看見</strong><p>白天也開頭燈、提早打方向燈、不停留在大型車死角，夜間穿亮色或反光衣物。</p></div>
+      </div>
+    </div>
+
+    <div class="sub" id="calc">
+      <h3>算算看：停下來需要多遠？ <small>反應距離＋煞車距離</small></h3>
+      <div class="card calc">
+        <div class="ctl">
+          <div><label for="c-speed"><span>車速</span><span class="num" id="o-speed">50 公里／小時</span></label><input id="c-speed" type="range" min="20" max="110" step="5" value="50"></div>
+          <div><label for="c-phone"><span>低頭看手機</span><span class="num" id="o-phone">2 秒</span></label><input id="c-phone" type="range" min="0" max="5" step="0.5" value="2"></div>
+          <div><label for="c-react"><span>看到危險後的反應時間</span><span class="num" id="o-react">1 秒</span></label><input id="c-react" type="range" min="0.5" max="2" step="0.25" value="1"></div>
+          <div><p style="font-weight:700;margin-bottom:6px">路面</p><div class="seg" role="group" aria-label="路面"><button type="button" id="c-dry" aria-pressed="true">乾燥</button><button type="button" id="c-wet" aria-pressed="false">濕滑（雨天）</button></div></div>
+        </div>
+        <div class="stack" style="min-width:0">
+          <div class="readout">
+            <div><b class="num" id="r-phone">27.8 m</b><span>低頭時前進</span></div>
+            <div><b class="num" id="r-react">13.9 m</b><span>反應時前進</span></div>
+            <div><b class="num" id="r-brake">14.0 m</b><span>煞車距離（估算）</span></div>
+          </div>
+          <p>從低頭到車子停住，總共需要 <b class="num" id="r-total" style="font-size:var(--step-1)">55.7 公尺</b>，大約是 <b class="num" id="r-cars">12</b> 輛小客車排成一列的長度。</p>
+          <div class="bar-wrap">
+            <div class="bar" id="bar"><div class="b-phone" id="b-phone"></div><div class="b-react" id="b-react"></div><div class="b-brake" id="b-brake"></div></div>
+            <div class="ticks" id="ticks"></div>
+          </div>
+          <div class="legend"><span><i style="background:var(--accent-bg)"></i>低頭看手機</span><span><i style="background:var(--sun)"></i>反應時間</span><span><i style="background:var(--stop)"></i>煞車</span></div>
+          <p class="law">煞車距離以 v²÷(2×摩擦係數×9.8) 估算：乾燥路面係數取 0.7、濕滑路面取 0.4；小客車長度以 4.5 公尺計。實際距離會因車況、輪胎與路況而不同。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <h3>絕對紅線：酒駕</h3>
+      <div class="grid g3">
+        <div class="card"><h4>標準</h4><p>吐氣酒精濃度每公升 <b>0.15 毫克</b>以上就違規。</p></div>
+        <div class="card"><h4>罰則</h4><p>機車 15,000～90,000 元、汽車 30,000～120,000 元並吊扣駕照；拒絕酒測 180,000 元並吊銷駕照。</p></div>
+        <div class="card"><h4>乘客也有責任</h4><p>年滿 18 歲的乘客明知駕駛酒駕仍上車，連坐處罰 6,000～15,000 元。</p></div>
+      </div>
+      <p class="muted" style="margin-top:12px">最好的做法只有一個：喝酒不騎車、不開車，改搭大眾運輸、計程車或使用代駕；朋友喝了酒，就不要上他的車。</p>
+    </div>
+  </div>
+</section>
+
+<section class="lane" id="videos">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">課堂影片</p>
+      <h2>8 部官方短片</h2>
+      <p>全部出自交通部 168 交通安全入口網「影音專區」（YouTube 頻道「熊平安」）。本站只提供連結，影片版權屬原製作單位。</p>
+    </div>
+    <div class="vgrid" id="vgrid">
+      <article class="vcard" data-id="-qn9oU4rufI"><div class="vnum">1</div><div><h4>小綠人三大修法重點</h4><p class="vmeta">115 年｜重點一・走路的安全第一</p><p class="vdesc">行人綠燈閃爍改為「避免跨入」，取消「小綠人快跑」動畫。</p><div class="vactions"><a class="btn-link" href="https://www.youtube.com/watch?v=-qn9oU4rufI" target="_blank" rel="noopener">到 YouTube 觀看</a><button class="btn-play" type="button" hidden>在此播放</button></div></div></article>
+      <article class="vcard" data-id="2YtEacfcwMA"><div class="vnum">2</div><div><h4>大型車上路安全知多少</h4><p class="vmeta">114 年｜重點一・遠離大型車</p><p class="vdesc">大型車的視野死角與內輪差。</p><div class="vactions"><a class="btn-link" href="https://www.youtube.com/watch?v=2YtEacfcwMA" target="_blank" rel="noopener">到 YouTube 觀看</a><button class="btn-play" type="button" hidden>在此播放</button></div></div></article>
+      <article class="vcard" data-id="8ktmvLljUm8"><div class="vnum">3</div><div><h4>騎車有照 才能浪漫上路</h4><p class="vmeta">115 年｜重點一・沒有駕照不上路</p><p class="vdesc">無照騎車的代價。</p><div class="vactions"><a class="btn-link" href="https://www.youtube.com/watch?v=8ktmvLljUm8" target="_blank" rel="noopener">到 YouTube 觀看</a><button class="btn-play" type="button" hidden>在此播放</button></div></div></article>
+      <article class="vcard" data-id="OOrmnumJMQ8"><div class="vnum">4</div><div><h4>考照有訓練 安全看得見</h4><p class="vmeta">114 年｜重點二・你的第一張駕照</p><p class="vdesc">駕訓降低違規與事故風險。</p><div class="vactions"><a class="btn-link" href="https://www.youtube.com/watch?v=OOrmnumJMQ8" target="_blank" rel="noopener">到 YouTube 觀看</a><button class="btn-play" type="button" hidden>在此播放</button></div></div></article>
+      <article class="vcard" data-id="ii4q4TnHCH4"><div class="vnum">5</div><div><h4>騎車毋通趕 停讓保平安</h4><p class="vmeta">115 年｜重點二・停讓的標準</p><p class="vdesc">騎機車同樣要停讓行人。</p><div class="vactions"><a class="btn-link" href="https://www.youtube.com/watch?v=ii4q4TnHCH4" target="_blank" rel="noopener">到 YouTube 觀看</a><button class="btn-play" type="button" hidden>在此播放</button></div></div></article>
+      <article class="vcard" data-id="p-dEg1TQ2qA"><div class="vnum">6</div><div><h4>車輛停讓行人 行人專心通行</h4><p class="vmeta">114 年｜重點二・行人也要做到</p><p class="vdesc">停讓與專心通行，是雙向的默契。</p><div class="vactions"><a class="btn-link" href="https://www.youtube.com/watch?v=p-dEg1TQ2qA" target="_blank" rel="noopener">到 YouTube 觀看</a><button class="btn-play" type="button" hidden>在此播放</button></div></div></article>
+      <article class="vcard" data-id="xbc_GkwqTak"><div class="vnum">7</div><div><h4>速度 vs 風險</h4><p class="vmeta">115 年｜重點二・慢一點</p><p class="vdesc">速度越快，反應與煞車距離越長。</p><div class="vactions"><a class="btn-link" href="https://www.youtube.com/watch?v=xbc_GkwqTak" target="_blank" rel="noopener">到 YouTube 觀看</a><button class="btn-play" type="button" hidden>在此播放</button></div></div></article>
+      <article class="vcard" data-id="_2cJemTrO5g"><div class="vnum">8</div><div><h4>驚見超人！駕駛別分心</h4><p class="vmeta">115 年｜重點二・早一點</p><p class="vdesc">分心駕駛的風險。</p><div class="vactions"><a class="btn-link" href="https://www.youtube.com/watch?v=_2cJemTrO5g" target="_blank" rel="noopener">到 YouTube 觀看</a><button class="btn-play" type="button" hidden>在此播放</button></div></div></article>
+    </div>
+    <div class="backups">
+      <p><b>延伸觀看</b></p>
+      <ul class="clean">
+        <li><a href="https://www.youtube.com/watch?v=nwQt40oERpI" target="_blank" rel="noopener">大型車輛路口停讓及行車視野確認</a>（113 年，公路局）</li>
+        <li><a href="https://www.youtube.com/watch?v=wUWg7ZZiV34" target="_blank" rel="noopener">停讓文化</a>（114 年）</li>
+        <li><a href="https://www.youtube.com/watch?v=bVA0L7noGso" target="_blank" rel="noopener">減速停讓 安全MVP就是你</a>（114 年）</li>
+        <li><a href="https://www.youtube.com/watch?v=98c9Fa5OyW4" target="_blank" rel="noopener">停讓是最溫柔的守護</a>（114 年，高速公路局）</li>
+        <li><a href="https://www.youtube.com/watch?v=WBAsfcSj1KQ" target="_blank" rel="noopener">路口換新裝，安全更進化</a>（114 年）</li>
+        <li><a href="https://www.youtube.com/watch?v=pdpsYieZmCA" target="_blank" rel="noopener">騎行「微電車」的安全守則</a>（114 年）</li>
+        <li><a href="https://www.youtube.com/watch?v=jJCvVXFYsog" target="_blank" rel="noopener">搶快？小心出事！</a>（115 年）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="lane" id="quiz">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">課後練習</p>
+      <h2>快問快答</h2>
+      <p>10 題，一題一題作答，每題都有解說。答錯也沒關係，看完解說再挑戰一次。</p>
+    </div>
+    <div class="game quiz" aria-live="polite">
+      <div class="game-top"><span class="tag" id="q-count">第 1 題／共 10 題</span><span class="muted" id="q-score">答對 0 題</span></div>
+      <div id="q-body">
+        <p class="q" id="q-text"></p>
+        <div class="opts" id="q-opts"></div>
+        <div class="feedback" id="q-feedback" hidden></div>
+        <div class="game-actions"><button class="btn primary" type="button" id="q-next" hidden>下一題</button></div>
+      </div>
+      <div id="q-end" hidden>
+        <p class="score" id="q-final"></p>
+        <p id="q-msg" style="margin:8px 0 16px"></p>
+        <button class="btn primary" type="button" id="q-again">再挑戰一次</button>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="sources">
+  <div class="wrap stack">
+    <h3>資料來源與版權說明</h3>
+    <p>本站文字與圖解為楊梅高中交通安全課程自製；課堂影片版權屬交通部 168 交通安全入口網及原製作單位，本站僅提供連結。法規與數據查證日期為 115 年 10 月，如有修正，以主管機關最新公告為準。</p>
+    <ul class="clean sources">
+      <li><a href="https://168.motc.gov.tw/" target="_blank" rel="noopener">交通部 168 交通安全入口網</a>（影音專區、行人專區、大型車專區、防禦駕駛專區）</li>
+      <li><a href="https://roadsafety.tw/" target="_blank" rel="noopener">道安資訊查詢網</a>（統計快覽）</li>
+      <li><a href="https://hpt.thb.gov.tw/videotest" target="_blank" rel="noopener">公路局 機車危險感知教育平台</a></li>
+      <li><a href="https://www.businesstoday.com.tw/article/category/183030/post/202603130012/" target="_blank" rel="noopener">今周刊：小綠人新制一文看懂（115/3/13）</a></li>
+      <li><a href="https://cars.tvbs.com.tw/life/320712" target="_blank" rel="noopener">TVBS：過路口五步驟「停、看、轉、揮、動」（115/5/11）</a></li>
+      <li><a href="https://news.pts.org.tw/article/800902" target="_blank" rel="noopener">公視：3/31 考照新制（115/3/27）</a></li>
+      <li><a href="https://www.ctee.com.tw/news/20260306701874-431401" target="_blank" rel="noopener">工商時報：無照駕駛新制罰則（115/3/6）</a></li>
+      <li><a href="https://www.knews.com.tw/news/5531D850143356BE8BABAC6845498343" target="_blank" rel="noopener">知新聞：18～24 歲機車死傷居冠、安全帽死亡風險（115/9/12）</a></li>
+    </ul>
+    <p>桃園市立楊梅高級中等學校　高二交通安全充實課程「楊光梅好、安全第一」</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* in-page playback needs a web server (YouTube refuses embeds opened from a local file) */
+  var ALLOW_EMBED = /^https?:$/.test(location.protocol);
+
+  /* ---------- nav highlight ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.signal nav a'));
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); });
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['map','today','eighteen','videos','quiz','sources'].forEach(function(id){ var el=document.getElementById(id); if (el) io.observe(el); });
+  }
+
+  /* ---------- video embeds (only where the host allows) ---------- */
+  if (ALLOW_EMBED) {
+    document.querySelectorAll('.vcard').forEach(function(card){
+      var btn = card.querySelector('.btn-play'); btn.hidden = false;
+      btn.addEventListener('click', function(){
+        var box = card.querySelector('.vframe');
+        if (!box) {
+          box = document.createElement('div'); box.className = 'vframe';
+          var f = document.createElement('iframe');
+          f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + card.dataset.id + '?autoplay=1&rel=0';
+          f.title = card.querySelector('h4').textContent;
+          f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+          f.allowFullscreen = true;
+          box.appendChild(f); card.appendChild(box); btn.textContent = '收起影片';
+        } else { box.remove(); btn.textContent = '在此播放'; }
+      });
+    });
+  }
+
+  /* ---------- scenario game ---------- */
+  var SCENES = [
+    { t: '右轉時，行人剛從右側走上斑馬線。', a: 'stop', why: '行人在穿越道上、距離不到 1 個車道寬，必須完全停住，等行人通過到安全距離再起步。' },
+    { t: '左轉時，對向行人正走在斑馬線上，朝你的方向過來。', a: 'stop', why: '左轉時注意力常放在對向來車而忽略行人。記住「先看車、再看人」，看到行人就停。' },
+    { t: '行人在斑馬線遠端，與你的行進方向相距超過 1 個車道寬。', a: 'slow', why: '依認定基準，這時還不構成未停讓；但法規不罰不等於安全，要減速並預判行人的動向，一靠近就停。' },
+    { t: '行人號誌已在閃爍，行人還在斑馬線上。', a: 'stop', why: '行人在穿越道上，就應讓行人優先通行；閃爍不代表駕駛可以搶。' },
+    { t: '無號誌路口，行人站在路邊準備穿越。', a: 'slow', why: '看到行人準備穿越，就先減速、準備停車；行人一踏上穿越道就完全停住。這是預防性駕駛的做法。' },
+    { t: '行人沒走斑馬線，突然從車陣之間走出來。', a: 'stop', why: '行人違規，但駕駛仍要注意車前狀況、隨時採取必要安全措施（道路交通安全規則第 94 條），煞停避免碰撞。平時保持距離與車速，就是在預留這段反應空間。' }
+  ];
+  var LABEL = { stop: '完全停住', slow: '減速注意，準備停車', go: '直接通過' };
+  var gi = 0, gScore = 0, gResults = [];
+  var gScene = document.getElementById('g-scene'), gFb = document.getElementById('g-feedback'), gNext = document.getElementById('g-next');
+  var gCount = document.getElementById('g-count'), gProg = document.getElementById('g-progress');
+  var gBtns = Array.prototype.slice.call(document.querySelectorAll('.choice'));
+  function gRender(){
+    gProg.innerHTML = '';
+    SCENES.forEach(function(_, i){ var b = document.createElement('i'); if (i < gResults.length) b.className = gResults[i] ? 'ok' : 'ng'; else if (i === gi) b.className = 'now'; gProg.appendChild(b); });
+    if (gi >= SCENES.length) {
+      gCount.textContent = '完成';
+      gScene.textContent = '6 題答對 ' + gScore + ' 題。' + (gScore === 6 ? '全對！你已經有成熟駕駛人的判斷。' : '看完解說後再挑戰一次，把「看到行人，完全停住」變成反射動作。');
+      gBtns.forEach(function(b){ b.hidden = true; });
+      gFb.hidden = true; gNext.hidden = false; gNext.textContent = '重新開始';
+      return;
+    }
+    gCount.textContent = '第 ' + (gi + 1) + ' 題／共 ' + SCENES.length + ' 題';
+    gScene.textContent = SCENES[gi].t;
+    gBtns.forEach(function(b){ b.hidden = false; b.disabled = false; b.classList.remove('picked'); });
+    gFb.hidden = true; gNext.hidden = true;
+  }
+  gBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var s = SCENES[gi], ok = btn.dataset.k === s.a;
+      gBtns.forEach(function(b){ b.disabled = true; });
+      btn.classList.add('picked');
+      if (ok) gScore++;
+      gResults.push(ok);
+      gFb.innerHTML = (ok ? '<b class="ok">答對了！</b>' : '<b class="ng">再想想。</b>正確做法是「' + LABEL[s.a] + '」。') + ' ' + s.why;
+      gFb.hidden = false; gNext.hidden = false; gNext.textContent = gi === SCENES.length - 1 ? '看結果' : '下一題';
+      gNext.focus();
+    });
+  });
+  gNext.addEventListener('click', function(){
+    if (gi >= SCENES.length) { gi = 0; gScore = 0; gResults = []; } else { gi++; }
+    gRender();
+  });
+  gRender();
+
+  /* ---------- stopping-distance calculator ---------- */
+  var sp = document.getElementById('c-speed'), ph = document.getElementById('c-phone'), re = document.getElementById('c-react');
+  var dry = document.getElementById('c-dry'), wet = document.getElementById('c-wet');
+  var mu = 0.7;
+  function fmt(x){ return (Math.round(x * 10) / 10).toFixed(1); }
+  function calc(){
+    var v = +sp.value / 3.6, tp = +ph.value, tr = +re.value;
+    var dp = v * tp, dr = v * tr, db = v * v / (2 * mu * 9.8), tot = dp + dr + db;
+    document.getElementById('o-speed').textContent = sp.value + ' 公里／小時';
+    document.getElementById('o-phone').textContent = tp + ' 秒';
+    document.getElementById('o-react').textContent = tr + ' 秒';
+    document.getElementById('r-phone').textContent = fmt(dp) + ' m';
+    document.getElementById('r-react').textContent = fmt(dr) + ' m';
+    document.getElementById('r-brake').textContent = fmt(db) + ' m';
+    document.getElementById('r-total').textContent = fmt(tot) + ' 公尺';
+    document.getElementById('r-cars').textContent = Math.max(1, Math.round(tot / 4.5));
+    var step = tot > 200 ? 50 : tot > 80 ? 20 : 10;
+    var max = Math.max(step * 4, Math.ceil(tot / step) * step);
+    function seg(id, d, label){ var el = document.getElementById(id); el.style.width = (d / max * 100) + '%'; el.textContent = d / max > 0.12 ? label + ' ' + fmt(d) : ''; el.title = label + ' ' + fmt(d) + ' 公尺'; }
+    seg('b-phone', dp, '低頭'); seg('b-react', dr, '反應'); seg('b-brake', db, '煞車');
+    var t = document.getElementById('ticks'); t.innerHTML = '';
+    for (var m = 0; m <= max; m += step) { var s = document.createElement('span'); s.style.left = (m / max * 100) + '%'; s.textContent = m + (m === max ? ' m' : ''); if (m === 0) s.style.transform = 'none'; if (m === max) s.style.transform = 'translateX(-100%)'; t.appendChild(s); }
+  }
+  [sp, ph, re].forEach(function(el){ el.addEventListener('input', calc); });
+  dry.addEventListener('click', function(){ mu = 0.7; dry.setAttribute('aria-pressed', 'true'); wet.setAttribute('aria-pressed', 'false'); calc(); });
+  wet.addEventListener('click', function(){ mu = 0.4; wet.setAttribute('aria-pressed', 'true'); dry.setAttribute('aria-pressed', 'false'); calc(); });
+  calc();
+
+  /* ---------- quiz ---------- */
+  var QS = [
+    { q: '115 年 3 月修正後，行人綠燈（小綠人）開始閃爍時，下列何者正確？', o: ['閃爍代表要用跑的衝過去', '閃爍時踏上行穿線就會被罰 500 元', '閃爍是提醒評估剩餘秒數，不夠就等下一輪綠燈', '閃爍時可以停在路中間等'], a: 2, e: '閃爍的意義改為「避免跨入」，是提醒你算秒數，不是叫你跑；來不及就等下一輪。' },
+    { q: '關於大型車，下列何者最安全？', o: ['等紅燈時停在大貨車右前方，比較好起步', '看不到司機的眼睛，就代表司機也看不到你，應該遠離', '大型車右轉時，從右側快速超過', '站在大型車正後方最安全'], a: 1, e: '車頭前方、左右兩側、車尾正後方都是死角，右轉時還有內輪差。' },
+    { q: '17 歲的小明騎爸爸的機車被警察攔下，依 115 年新制，下列何者正確？', o: ['只罰小明 1,200 元', '機車罰 18,000～36,000 元，小明和家長都要上道安講習', '爸爸沒騎車，不會被罰', '車子可以馬上騎走'], a: 1, e: '無照駕駛加重處罰，車輛當場移置保管；未滿 18 歲本人與家長同時講習，借車的車主也同罰。' },
+    { q: '開車右轉時，行人已走上斑馬線，距離車頭不到 1 個車道寬（約 3 公尺），駕駛應該怎麼做？', o: ['放慢速度慢慢滑過去', '按喇叭提醒行人', '完全停住，讓行人先過', '從行人後方繞過'], a: 2, e: '停讓是完全停止。距離不到 1 個車道寬、車頭又進入穿越道，就構成未停讓。' },
+    { q: '預防性駕駛四要領「慢一點、遠一點、早一點、亮一點」中，「亮一點」指的是？', o: ['車子要洗得亮', '白天也開頭燈、提早打方向燈，讓別人看得見你', '只在晚上開燈', '喇叭按大聲一點'], a: 1, e: '開燈是為了讓別人更早看見你，不是為了讓你看見路。' },
+    { q: '未戴或未依規定配戴安全帽，死亡風險大約是正確配戴的幾倍？', o: ['差不多', '2 倍', '4 倍', '8～8.8 倍'], a: 3, e: '依交通部統計約為 8～8.8 倍。安全帽要戴正、扣好，扣帶與下巴間約 1～2 指。' },
+    { q: '時速 50 公里時低頭看手機 2 秒，車子大約前進多遠？', o: ['約 3 公尺', '約 10 公尺', '約 28 公尺', '約 100 公尺'], a: 2, e: '時速 50 公里每秒約前進 14 公尺，2 秒就是約 28 公尺，等於閉著眼睛開過好幾個車身。' },
+    { q: '關於微型電動二輪車，下列何者正確？', o: ['滿 12 歲就可以騎', '可以順便載同學', '須年滿 14 歲、掛牌、投保、戴安全帽', '最高時速可以到 40 公里'], a: 2, e: '另外時速 25 公里以下，不得載人、不得改裝。' },
+    { q: '朋友喝了酒還要開車，年滿 18 歲的你明知仍上車，會怎樣？', o: ['乘客不用負責', '會被連坐處罰 6,000～15,000 元', '只要繫安全帶就沒事', '只罰駕駛'], a: 1, e: '同車乘客連坐罰。最好的做法是不上車，也勸朋友不要開。' },
+    { q: '完成機車駕訓再考照的新手，和自行考照相比如何？', o: ['沒有差別', '違規風險降低 59%、事故風險降低 36%', '事故風險反而提高', '只差在考試分數'], a: 1, e: '交通部資料顯示駕訓有明顯效果。考照考的是判斷力，判斷力需要練習。' }
+  ];
+  var qi = 0, qs = 0;
+  var qText = document.getElementById('q-text'), qOpts = document.getElementById('q-opts'), qFb = document.getElementById('q-feedback');
+  var qNext = document.getElementById('q-next'), qCount = document.getElementById('q-count'), qScore = document.getElementById('q-score');
+  function qRender(){
+    var Q = QS[qi];
+    qCount.textContent = '第 ' + (qi + 1) + ' 題／共 ' + QS.length + ' 題';
+    qScore.textContent = '答對 ' + qs + ' 題';
+    qText.textContent = Q.q;
+    qOpts.innerHTML = '';
+    Q.o.forEach(function(txt, i){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'opt';
+      b.textContent = '(' + 'ABCD'[i] + ') ' + txt;
+      b.addEventListener('click', function(){
+        var all = qOpts.querySelectorAll('.opt');
+        all.forEach(function(x){ x.disabled = true; });
+        all[Q.a].classList.add('right');
+        if (i === Q.a) { qs++; } else { b.classList.add('wrong'); }
+        qScore.textContent = '答對 ' + qs + ' 題';
+        qFb.innerHTML = (i === Q.a ? '<b class="ok">答對了！</b> ' : '<b class="ng">正確答案是 (' + 'ABCD'[Q.a] + ')。</b> ') + Q.e;
+        qFb.hidden = false; qNext.hidden = false; qNext.textContent = qi === QS.length - 1 ? '看成績' : '下一題'; qNext.focus();
+      });
+      qOpts.appendChild(b);
+    });
+    qFb.hidden = true; qNext.hidden = true;
+  }
+  qNext.addEventListener('click', function(){
+    if (qi < QS.length - 1) { qi++; qRender(); return; }
+    document.getElementById('q-body').hidden = true;
+    document.getElementById('q-end').hidden = false;
+    document.getElementById('q-final').textContent = qs + '／' + QS.length;
+    document.getElementById('q-msg').textContent = qs >= 8 ? '很棒！楊光梅好的未來，就從安全第一開始。' : '回到上面複習一下，再挑戰一次吧。';
+  });
+  document.getElementById('q-again').addEventListener('click', function(){
+    qi = 0; qs = 0; document.getElementById('q-end').hidden = true; document.getElementById('q-body').hidden = false; qRender();
+  });
+  qRender();
+})();
+</script>
+
+</body>
+</html>
